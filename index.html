@@ -1,10 +1,72 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>SongFormatter</title>
+    <link rel="stylesheet" href="layui/css/layui.css">
 </head>
 <body>
+<div class="layui-container">
+    <blockquote class="layui-elem-quote" style="margin-top: 30px;">
+        <div class="layui-text">
+            <ul>
+                <li>如果你希望缩短自己和松的距离，那么这个小工具也许能帮助你</li>
+                <li>把你的文字转换成松体，立刻成为文豪吧</li>
+            </ul>
+        </div>
+    </blockquote>
+    <form class="layui-form" action="" lay-filter="example">
+    <div class="layui-form-item layui-form-text">
+        <label class="layui-form-label">正常文字</label>
+        <div class="layui-input-block">
+            <textarea placeholder="请输入内容" class="layui-textarea" name="song_input"></textarea>
+        </div>
+    </div>
+    </form>
+    <div class="layui-btn-container">
+        <button class="layui-btn" id="song_now">现在松化</button>
+    </div>
+    <div class="layui-col-md6">
+        <div class="layui-card">
+            <div class="layui-card-header">松化结果</div>
+            <div class="layui-card-body">
+                <pre class="layui-code" id="song_output"></pre>
+            </div>
+        </div>
+    </div>
+</div>
 
+
+<!-- 引入 layui.js 的 <script> 标签最好放置在 html 末尾 -->
+<script src="layui/layui.js"></script>
+<script src="formatter.js"></script>
+<script>
+    layui.use(function () {
+        var layer = layui.layer
+            , form = layui.form
+            , laypage = layui.laypage
+            , element = layui.element
+            , laydate = layui.laydate
+            , util = layui.util;
+
+        //输出版本号
+        lay('#version').html(layui.v);
+
+        //日期
+        laydate.render({
+            elem: '#test2'
+            , value: new Date()
+            , isInitValue: true
+        });
+
+        //触发事件
+        layui.$('#song_now').on('click', function(){
+            var data = form.val('example');
+            var output = format(data.song_input);
+            layui.$('#song_output').html(output);
+        });
+    });
+</script>
 </body>
 </html>
