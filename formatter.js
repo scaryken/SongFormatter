@@ -12,22 +12,18 @@ function format(str) {
     return f + "\n\n" + tail;
 }
 
-function calculate_byte(sTargetStr) {
-    var sTmpStr, sTmpChar;
-    var nOriginLen = 0;
-    var nStrLength = 0;
-    sTmpStr = new String(sTargetStr);
-    nOriginLen = sTmpStr.length;
-    for (var i = 0; i < nOriginLen; i++) {
-        sTmpChar = sTmpStr.charAt(i);
-
-        if (escape(sTmpChar).length > 4) {
-            nStrLength += 2;
-        } else if (sTmpChar != '/r') {
-            nStrLength++;
-        }
+function calculate_byte(str) {
+    var byteLen = 0;
+    var cnCharByteLen = 1;
+    for (var i = 0; i < str.length; i++) {
+        //alert（str.charAt（i））;
+        if ((/[\x00-\xff]/g).test(str.charAt(i)))
+            byteLen += 1;
+        else
+            byteLen += cnCharByteLen;
     }
-    return nStrLength;
+    //alert(byteLen);
+    return byteLen;
 }
 
 function getCurrentTime() {
