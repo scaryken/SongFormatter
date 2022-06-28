@@ -13,22 +13,33 @@
         <div class="layui-header header">
             <div class="layui-logo layui-hide-xs layui-bg-black">SongFormatter</div>
             <ul class="layui-nav layui-layout-left" lay-filter="">
+                <li class="layui-nav-item layui-show-xs-inline-block layui-hide-sm" lay-header-event="menuLeft">
+                    <i class="layui-icon layui-icon-spread-left"></i>
+                </li>
                 <li class="layui-nav-item layui-hide-xs"><a href="index.html">松体</a></li>
                 <li class="layui-nav-item layui-hide-xs"><a href="drunk_body.html">醉酒体</a></li>
                 <li class="layui-nav-item layui-hide-xs layui-this"><a href="song_history.html">松史</a></li>
                 <li class="layui-nav-item layui-hide-xs"><a href="xiaoleiyin.html">小雷音寺</a></li>
             </ul>
         </div>
+        <ul class="layui-nav layui-nav-tree layui-nav-side layui-hide" id="sideNav" style="margin-top: 60px;">
+            <li class="layui-nav-item"><a href="index.html">松体</a></li>
+            <li class="layui-nav-item"><a href="drunk_body.html">醉酒体</a></li>
+            <li class="layui-nav-item"><a href="song_history.html">松史</a></li>
+            <li class="layui-nav-item"><a href="xiaoleiyin.html">小雷音寺</a></li>
+        </ul>
         <div class="layui-container" style="margin-top: 70px;">
             <div class="layui-bg-gray" style="padding: 30px;">
                 <div class="layui-row layui-col-space15">
-                  <div class="layui-col-md6">
-                    <div class="layui-panel">
-                      <div style="padding: 50px 30px;"><a href="https://boggy-cloudberry-92b.notion.site/ab63ed27f59f45e3a8608417347886c6">点击这里查看松史</a></div>
-                    </div>   
-                  </div>
-                </div> 
-              </div>
+                    <div class="layui-col-md6">
+                        <div class="layui-panel">
+                            <div style="padding: 50px 30px;"><a
+                                    href="https://boggy-cloudberry-92b.notion.site/ab63ed27f59f45e3a8608417347886c6">点击这里查看松史</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -53,6 +64,19 @@
                 elem: '#test2'
                 , value: new Date()
                 , isInitValue: true
+            });
+            //头部事件
+            util.event('lay-header-event', {
+                //左侧菜单事件
+                menuLeft: function (othis) {
+                    if (layui.$('#sideNav').hasClass("layui-hide")) {
+                        layui.$('#sideNav').removeClass("layui-hide");
+                    }
+                    else {
+                        layui.$('#sideNav').addClass("layui-hide");
+                    }
+
+                }
             });
         });
     </script>
