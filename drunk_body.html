@@ -13,23 +13,50 @@
         <div class="layui-header">
             <div class="layui-logo layui-hide-xs layui-bg-black">SongFormatter</div>
             <ul class="layui-nav layui-layout-left" lay-filter="">
-                <li class="layui-nav-item layui-this"><a href="index.html">松体</a></li>
-                <li class="layui-nav-item"><a href="drunk_body.html">醉酒体</a></li>
+                <li class="layui-nav-item"><a href="index.html">松体</a></li>
+                <li class="layui-nav-item layui-this"><a href="drunk_body.html">醉酒体</a></li>
                 <li class="layui-nav-item"><a href="song_history.html">松史</a></li>
                 <li class="layui-nav-item"><a href="xiaoleiyin.html">小雷音寺</a></li>
             </ul>
         </div>
-
         <div class="layui-container" style="margin-top: 70px;">
             <fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;">
-                <legend>松体转换器</legend>
+                <legend>醉酒体生成器</legend>
             </fieldset>
             <form class="layui-form" action="" lay-filter="example">
-                <div class="layui-form-item layui-form-text">
-                    <label class="layui-form-label">正常文字</label>
-                    <div class="layui-input-block">
-                        <textarea placeholder="请输入内容" class="layui-textarea" name="song_input"></textarea>
+                <div class="layui-container">
+                    操他妈，这个破
+                    <div class="layui-input-inline">
+                        <input type="text" name="fuck_thing_1" lay-verify="required" placeholder="社会" autocomplete="off"
+                            class="layui-input" style="width: 100px;">
                     </div>
+                    ，草操他妈的破
+                    <div class="layui-input-inline">
+                        <input type="text" name="fuck_thing_2" lay-verify="required" placeholder="全社会"
+                            autocomplete="off" class="layui-input" style="width: 100px;">
+                    </div>
+                    <br>
+                    老子
+                    <div class="layui-input-inline">
+                        <input type="text" name="action" lay-verify="required" placeholder="看" autocomplete="off"
+                            class="layui-input" style="width: 50px;">
+                    </div>
+                    啦
+                    <div class="layui-input-inline">
+                        <input type="text" name="place" lay-verify="required" placeholder="西安交通大学" autocomplete="off"
+                            class="layui-input" style="width: 150px;">
+                    </div>
+                    最多的
+                    <div class="layui-input-inline">
+                        <input type="text" name="thing" lay-verify="required" placeholder="书" autocomplete="off"
+                            class="layui-input" style="width: 50px;">
+                    </div>
+                    ，他妈的老子居然不
+                    <div class="layui-input-inline">
+                        <input type="text" name="result" lay-verify="required" placeholder="能毕业" autocomplete="off"
+                            class="layui-input" style="width: 100px;">
+                    </div>
+                    ……操他妈
                 </div>
             </form>
             <div class="layui-btn-container">
@@ -73,7 +100,14 @@
             //触发事件
             layui.$('#song_now').on('click', function () {
                 var data = form.val('example');
-                var output = format(data.song_input);
+                var output = formatDrunk(
+                    data.fuck_thing_1||"社会",
+                    data.fuck_thing_2||"全社会",
+                    data.action||"看",
+                    data.place||"西安交通大学",
+                    data.thing||"书",
+                    data.result||"能毕业"
+                    );
                 layui.$('#song_output').html(output);
             });
             layui.$('#song_copy').on('click', function () {

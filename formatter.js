@@ -30,3 +30,20 @@ function getCurrentTime() {
     var timer = year + '年' + month + '月' + dat + '日' + hour + ':' + minutes;
     return timer;
 }
+
+function copyString(string) {
+    if (!string) return false
+    let dom = document.createElement('input');
+    dom.value = string;
+    document.body.appendChild(dom);
+    dom.select(); // 选择对象
+    document.execCommand("Copy"); // 执行浏览器复制命令
+    document.body.removeChild(dom)
+    console.log('内容已经复制到剪切板')
+    return true
+}
+function formatDrunk(fuck1, fuck2, action, place, thing, result) {
+    let fuckResult = "";
+    fuckResult = "操他妈，这个破" + fuck1 + "，草操他妈的破" + fuck2 + "\n老子" + action + "啦" + place + "最多的" + thing + "，他妈的老子居然不" + result + "……操他妈";
+    return fuckResult;
+}

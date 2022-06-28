@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>SongFormatter</title>
+    <link rel="stylesheet" href="layui/css/layui.css">
+</head>
+
+<body>
+    <div class="layui-layout layui-layout-admin">
+        <div class="layui-header">
+            <div class="layui-logo layui-hide-xs layui-bg-black">SongFormatter</div>
+            <ul class="layui-nav layui-layout-left" lay-filter="">
+                <li class="layui-nav-item"><a href="index.html">松体</a></li>
+                <li class="layui-nav-item"><a href="drunk_body.html">醉酒体</a></li>
+                <li class="layui-nav-item layui-this"><a href="song_history.html">松史</a></li>
+                <li class="layui-nav-item"><a href="xiaoleiyin.html">小雷音寺</a></li>
+            </ul>
+        </div>
+        <div class="layui-container" style="margin-top: 70px;">
+            <div class="layui-bg-gray" style="padding: 30px;">
+                <div class="layui-row layui-col-space15">
+                  <div class="layui-col-md6">
+                    <div class="layui-panel">
+                      <div style="padding: 50px 30px;"><a href="https://boggy-cloudberry-92b.notion.site/ab63ed27f59f45e3a8608417347886c6">点击这里查看松史</a></div>
+                    </div>   
+                  </div>
+                </div> 
+              </div>
+        </div>
+    </div>
+
+
+    <!-- 引入 layui.js 的 <script> 标签最好放置在 html 末尾 -->
+    <script src="layui/layui.js"></script>
+    <script src="formatter.js?version=1"></script>
+    <script>
+        layui.use(function () {
+            var layer = layui.layer
+                , form = layui.form
+                , laypage = layui.laypage
+                , element = layui.element
+                , laydate = layui.laydate
+                , util = layui.util;
+
+            //输出版本号
+            lay('#version').html(layui.v);
+
+            //日期
+            laydate.render({
+                elem: '#test2'
+                , value: new Date()
+                , isInitValue: true
+            });
+        });
+    </script>
+</body>
+
+</html>
