@@ -32,8 +32,14 @@ function getCurrentTime() {
 }
 
 function copyString(string) {
-    if (!string) return false;
-    navigator.clipboard.writeText(string);
+    if (!string) return false
+    let dom = document.createElement('textarea');
+    dom.value = string;
+    document.body.appendChild(dom);
+    dom.select(); // 选择对象
+    document.execCommand("Copy"); // 执行浏览器复制命令
+    document.body.removeChild(dom)
+    console.log('内容已经复制到剪切板')
     return true
 }
 function formatDrunk(fuck1, fuck2, action, place, thing, result) {
