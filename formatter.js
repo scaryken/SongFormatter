@@ -47,3 +47,9 @@ function formatDrunk(fuck1, fuck2, action, place, thing, result) {
     fuckResult = "操他妈，这个破" + fuck1 + "，草操他妈的破" + fuck2 + "\r\n老子" + action + "啦" + place + "最多的" + thing + "，他妈的老子居然不" + result + "……操他妈";
     return fuckResult;
 }
+function formatKicked(thing1,action1,thing2,action2) {
+    let fuckResult = "";
+    fuckResult = "已踢\r\n\r\n我没有时间辨别是否" + thing1 + "\r\n\r\n我做的是" + action1 + "\r\n\r\n要有自己的" + thing2
+     + "\r\n\r\n人要学会" + action2 + "\r\n\r\n排除异己结党营私";
+    return fuckResult;
+}
